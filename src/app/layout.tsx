@@ -4,6 +4,8 @@ import { cn } from "@/lib/utils";
 import { fonts } from "./font";
 import { initColorModeScript } from "@/features/color-mode/init-color-mode";
 import { Layout } from "./_layout";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Timestamp",
@@ -25,6 +27,8 @@ export default function RootLayout({
       </head>
       <body className={cn(...fonts.map((font) => font.variable))}>
         <Layout>{children}</Layout>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
