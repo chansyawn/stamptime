@@ -20,6 +20,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <meta
+          name="google-site-verification"
+          content="hJM0ATeccupnt--DcaRXAIs0bWqj2w1-_iQ6M5gGTco"
+        />
         <script
           id="set-color-mode"
           dangerouslySetInnerHTML={{ __html: initColorModeScript }}
