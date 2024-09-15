@@ -8,8 +8,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
-  title: "Timestamp",
-  description: "Timestamp converter",
+  title: "STAMPTIME",
+  description: "A tool for timestamp conversion",
 };
 
 export default function RootLayout({

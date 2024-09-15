@@ -4,9 +4,15 @@ const config: Config = {
   darkMode: ["class", '[data-color-mode="dark"]'],
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+    },
     extend: {
       container: {
         center: true,
+        padding: "1rem",
       },
       fontFamily: {
         sans: ["var(--font-roboto-flex)"],
