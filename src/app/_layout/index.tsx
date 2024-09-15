@@ -4,6 +4,7 @@ import React from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { ColorModeProvider } from "@/features/color-mode/color-mode-context";
 import { Auxiliary } from "./auxiliary";
+import { References } from "./reference";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -17,7 +18,12 @@ export function Layout({ children }: { children: React.ReactNode }) {
             <Auxiliary />
           </div>
         </header>
-        <main className="container isolate">{children}</main>
+        <main className="container isolate">
+          {children}
+          <aside className="mt-4">
+            <References />
+          </aside>
+        </main>
       </TooltipProvider>
     </ColorModeProvider>
   );
