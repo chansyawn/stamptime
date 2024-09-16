@@ -1,5 +1,3 @@
-"use client";
-
 import { cn } from "@/lib/utils";
 import { ColorModeSelector } from "@/features/color-mode/color-mode-selector";
 
