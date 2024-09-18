@@ -69,8 +69,8 @@ export function TimestampInput({
       <div className="mb-2 flex items-center gap-2">
         <div className="relative">
           <Input
-            inputMode="numeric"
-            style={{ width: `calc(${14 + granularityValueLength}ch + 2rem)` }}
+            type="number"
+            style={{ width: `calc(${15 + granularityValueLength}ch + 2rem)` }}
             className="h-10 bg-transparent text-xl"
             value={`${timestampDisplay}${granularityValueDisplay}`}
             onChange={(e) => {

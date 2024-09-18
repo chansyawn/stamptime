@@ -33,7 +33,7 @@ export function TimestampBreakdownInput({
         }}
         type="number"
         style={{ width }}
-        className="bg-transparent"
+        className="bg-transparent [&::-webkit-inner-spin-button]:opacity-0 [&::-webkit-inner-spin-button]:focus-visible:opacity-100"
         value={value}
         onChange={(e) => {
           if (isNaN(e.target.valueAsNumber)) {
