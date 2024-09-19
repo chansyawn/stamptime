@@ -12,6 +12,7 @@ import {
   TIMESTAMP_GRANULARITY_VALUE_LENGTH,
 } from "./timestamp-granularity";
 import { TimestampQuickPicker } from "./timestamp-quick-picker";
+import { PasteButton } from "@/components/paste-button";
 
 interface TimestampInputProps {
   timestamp: number;
@@ -82,12 +83,12 @@ export function TimestampInput({
             <span className="bg-secondary">{granularityValueDisplay}</span>
           </div>
         </div>
-        {/* <PasteButton
+        <PasteButton
           variant="outline"
           onPaste={(value) => {
             handleValueChange(value, granularityValueLength);
           }}
-        /> */}
+        />
       </div>
       {isReachMaxTimestamp ? (
         <div className="mb-1 px-1 text-xs text-destructive">

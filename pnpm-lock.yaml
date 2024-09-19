@@ -28,6 +28,9 @@ importers:
       "@radix-ui/react-switch":
         specifier: ^1.1.0
         version: 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      "@radix-ui/react-toast":
+        specifier: ^1.2.1
+        version: 1.2.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       "@radix-ui/react-tooltip":
         specifier: ^1.1.2
         version: 1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -49,6 +52,9 @@ importers:
       jotai:
         specifier: ^2.9.3
         version: 2.9.3(@types/react@18.3.5)(react@18.3.1)
+      jotai-effect:
+        specifier: ^1.0.3
+        version: 1.0.3(jotai@2.9.3(@types/react@18.3.5)(react@18.3.1))
       jotai-optics:
         specifier: ^0.4.0
         version: 0.4.0(jotai@2.9.3(@types/react@18.3.5)(react@18.3.1))(optics-ts@2.4.1)
@@ -856,6 +862,22 @@ packages:
     resolution:
       {
         integrity: sha512-OBzy5WAj641k0AOSpKQtreDMe+isX0MQJ1IVyF03ucdF3DunOnROVrjWs8zsXUxC3zfZ6JL9HFVCUlMghz9dJw==,
+      }
+    peerDependencies:
+      "@types/react": "*"
+      "@types/react-dom": "*"
+      react: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+      react-dom: ^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc
+    peerDependenciesMeta:
+      "@types/react":
+        optional: true
+      "@types/react-dom":
+        optional: true
+
+  "@radix-ui/react-toast@1.2.1":
+    resolution:
+      {
+        integrity: sha512-5trl7piMXcZiCq7MW6r8YYmu0bK5qDpTWz+FdEPdKyft2UixkspheYbjbrLXVN5NGKHFbOP7lm8eD0biiSqZqg==,
       }
     peerDependencies:
       "@types/react": "*"
@@ -2644,6 +2666,14 @@ packages:
         integrity: sha512-2yTgeWTWzMWkHu6Jp9NKgePDaYHbntiwvYuuJLbbN9vl7DC9DvXKOB2BC3ZZ92D3cvV/aflH0osDfwpHepQ53w==,
       }
     hasBin: true
+
+  jotai-effect@1.0.3:
+    resolution:
+      {
+        integrity: sha512-Xye6oVMQkhOmkF9G5gdtwlqG2w9GuMcfYdRS0aV/HeoYCj1LfLJ4O8jQRVT/Zb5hPGOLGNll/x6k5wxifn1jYg==,
+      }
+    peerDependencies:
+      jotai: ">=2.5.0"
 
   jotai-optics@0.4.0:
     resolution:
@@ -4588,6 +4618,26 @@ snapshots:
       "@types/react": 18.3.5
       "@types/react-dom": 18.3.0
 
+  "@radix-ui/react-toast@1.2.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)":
+    dependencies:
+      "@radix-ui/primitive": 1.1.0
+      "@radix-ui/react-collection": 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      "@radix-ui/react-compose-refs": 1.1.0(@types/react@18.3.5)(react@18.3.1)
+      "@radix-ui/react-context": 1.1.0(@types/react@18.3.5)(react@18.3.1)
+      "@radix-ui/react-dismissable-layer": 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      "@radix-ui/react-portal": 1.1.1(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      "@radix-ui/react-presence": 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      "@radix-ui/react-primitive": 2.0.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      "@radix-ui/react-use-callback-ref": 1.1.0(@types/react@18.3.5)(react@18.3.1)
+      "@radix-ui/react-use-controllable-state": 1.1.0(@types/react@18.3.5)(react@18.3.1)
+      "@radix-ui/react-use-layout-effect": 1.1.0(@types/react@18.3.5)(react@18.3.1)
+      "@radix-ui/react-visually-hidden": 1.1.0(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
+    optionalDependencies:
+      "@types/react": 18.3.5
+      "@types/react-dom": 18.3.0
+
   "@radix-ui/react-tooltip@1.1.2(@types/react-dom@18.3.0)(@types/react@18.3.5)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)":
     dependencies:
       "@radix-ui/primitive": 1.1.0
@@ -5829,6 +5879,10 @@ snapshots:
       "@pkgjs/parseargs": 0.11.0
 
   jiti@1.21.6: {}
+
+  jotai-effect@1.0.3(jotai@2.9.3(@types/react@18.3.5)(react@18.3.1)):
+    dependencies:
+      jotai: 2.9.3(@types/react@18.3.5)(react@18.3.1)
 
   jotai-optics@0.4.0(jotai@2.9.3(@types/react@18.3.5)(react@18.3.1))(optics-ts@2.4.1):
     dependencies:
