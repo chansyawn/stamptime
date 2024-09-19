@@ -6,11 +6,11 @@ export const ALL_UTC_OFFSETS = new Array(26)
   .fill(0)
   .map((_, idx) => getEtcTimezoneNameByOffset(60 * (idx - 14)));
 
-// Max timestamp in ECMAScript Date is milliseconds of ±100,000,000 days,
-// minus two day for timezone convert correctly there.
+// Max timestamp in ECMAScript Date is milliseconds of ±100,000,000 days (8640000000000),
+// use 8600000000000 as maximum for timezone convert correctly there.
 // https://stackoverflow.com/questions/12666127/what-range-of-dates-are-permitted-in-javascript
 // https://en.wikipedia.org/wiki/Time_formatting_and_storage_bugs#Year_275,760
-export const MAX_TIMESTAMP = 60 * 60 * 24 * (100000000 - 2);
+export const MAX_TIMESTAMP = 8600000000000;
 
 export const TIME_FIELDS: {
   label: string;

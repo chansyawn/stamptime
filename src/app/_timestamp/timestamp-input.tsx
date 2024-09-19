@@ -97,12 +97,10 @@ export function TimestampInput({
               Why is {MAX_TIMESTAMP}?
             </TooltipTrigger>
             <TooltipContent>
-              <p>
+              <p className="max-w-96">
                 Max timestamp in ECMAScript Date is milliseconds of ±100,000,000
-                days,
-              </p>
-              <p>
-                minus two day for timezone convert correctly there.{" "}
+                days (8640000000000), use 8600000000000 as maximum for timezone
+                convert correctly there.
                 <a
                   className="ml-1 cursor-pointer underline"
                   target="_blank"
