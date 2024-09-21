@@ -23,6 +23,7 @@ import { CheckIcon, ChevronsUpDownIcon } from "lucide-react";
 import { useAtomValue } from "jotai";
 import { ALL_UTC_OFFSETS } from "./constant";
 import { allETCTimezonesAtom, supportedTimezonesAtom } from "./atom";
+import { useTranslations } from "next-intl";
 
 interface TimezoneSelectorProps {
   value?: string;
@@ -35,6 +36,8 @@ export function TimezoneSelector({
   onChange,
   trigger,
 }: TimezoneSelectorProps) {
+  const t = useTranslations();
+
   const [open, setOpen] = useState(false);
   const [utcMode, setUtcMode] = useState(false);
 
@@ -80,7 +83,7 @@ export function TimezoneSelector({
         <Command>
           <CommandInput
             className="border-b-0"
-            placeholder="Search Timezone..."
+            placeholder={t("timezone-search-placeholder")}
           />
           <div className="flex items-center border-b p-2">
             <Switch
@@ -89,7 +92,7 @@ export function TimezoneSelector({
               onCheckedChange={handleUtcModeChange}
             />
             <Label htmlFor="utc-mode" className="ml-2 text-sm font-normal">
-              Etc timezone
+              {t("etc-timezone")}
             </Label>
             {utcMode ? (
               <Button
@@ -99,11 +102,11 @@ export function TimezoneSelector({
                 asChild
               >
                 <a
-                  href="https://en.wikipedia.org/wiki/Tz_database#Area"
+                  href="https://wikipedia.org/wiki/Tz_database#Area"
                   target="_blank"
                   rel="noopener"
                 >
-                  Why sign is inverted?
+                  {t("etc-timezone-sign-invert-reason")}
                 </a>
               </Button>
             ) : null}

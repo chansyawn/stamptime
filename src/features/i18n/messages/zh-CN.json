@@ -1,0 +1,34 @@
+{
+  "add-timezone": "添加时区",
+  "reach-maximum": "达到最大支持的时间戳。",
+  "why-maximum-is": "为什么是 {maximum}?",
+  "etc-timezone-sign-invert-reason": "为什么时区符号是相反的?",
+  "maximum-reason": "ECMAScript Date 最大时间戳是 ±100,000,000 天的毫秒数（8640000000000 毫秒），为了时区转换正确，这里使用 8600000000000 作为最大值。",
+  "timezone-search-placeholder": "搜索时区",
+  "etc-timezone": "Etc 时区",
+  "read-more": "拓展阅读",
+  "Unit": {
+    "seconds": "秒",
+    "milliseconds": "毫秒",
+    "microseconds": "微秒",
+    "nanoseconds": "纳秒"
+  },
+  "Permission": {
+    "permission-denied": "权限不足",
+    "permission-denied-description": "没有{name}权限",
+    "how-to-authorize": "如何授权",
+    "clipboard-read": "剪贴板"
+  },
+  "QuickPicker": {
+    "0": "0",
+    "now": "当前时间",
+    "x1000": "x1000",
+    "÷1000": "÷1000",
+    "precise-to-seconds": "精确到秒"
+  },
+  "Reference": {
+    "reference": "参考资料",
+    "unix-time": "Unix 时间",
+    "timezone-database": "时区数据库"
+  }
+}

@@ -2,6 +2,7 @@ import { cn } from "@/lib/utils";
 import { ColorModeSelector } from "@/features/color-mode/color-mode-selector";
 import { Button } from "@/components/ui/button";
 import { SiGithub } from "@icons-pack/react-simple-icons";
+import { LanguageSelector } from "@/features/i18n/language-selector";
 
 interface AuxiliaryProps {
   className?: string;
@@ -10,6 +11,7 @@ interface AuxiliaryProps {
 export function Auxiliary({ className }: AuxiliaryProps) {
   return (
     <div className={cn("flex gap-1", className)}>
+      <LanguageSelector />
       <a
         href="https://github.com/chansyawn/stamptime"
         target="_blank"

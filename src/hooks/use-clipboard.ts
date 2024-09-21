@@ -14,7 +14,7 @@ export const useClipboard = ({ timeout = 1000 }: UseClipboardOptions = {}) => {
 
   const copy = useCallback(
     (value: string) => {
-      void navigator.clipboard.writeText(value).then(() => {
+      navigator.clipboard.writeText(value).then(() => {
         setCopied(true);
         setTimeout(() => {
           setCopied(false);

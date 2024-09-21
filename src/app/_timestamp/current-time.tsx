@@ -19,10 +19,5 @@ export function CurrentTime() {
     };
   }, []);
 
-  return (
-    <div>
-      <div className="ml-auto text-4xl">{currTimestampSeconds}</div>
-      <div>seconds since 1970/1/1</div>
-    </div>
-  );
+  return <div className="ml-auto text-4xl">{currTimestampSeconds}</div>;
 }

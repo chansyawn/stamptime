@@ -6,19 +6,24 @@ import { initColorModeScript } from "@/features/color-mode/init-color-mode";
 import { Layout } from "./_layout";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 
 export const metadata: Metadata = {
   title: "STAMPTIME",
   description: "A tool for timestamp conversion",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const locale = await getLocale();
+  const messages = await getMessages();
+
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang={locale} suppressHydrationWarning>
       <head>
         <meta
           name="google-site-verification"
@@ -30,7 +35,9 @@ export default function RootLayout({
         />
       </head>
       <body className={cn(...fonts.map((font) => font.variable))}>
-        <Layout>{children}</Layout>
+        <NextIntlClientProvider messages={messages}>
+          <Layout>{children}</Layout>
+        </NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />
       </body>

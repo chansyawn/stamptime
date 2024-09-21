@@ -27,8 +27,8 @@ export function Layout({ children }: { children: React.ReactNode }) {
             </aside>
           </main>
         </TooltipProvider>
+        <Toaster />
       </ColorModeProvider>
-      <Toaster />
     </>
   );
 }

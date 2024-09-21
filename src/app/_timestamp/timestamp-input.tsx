@@ -13,6 +13,7 @@ import {
 } from "./timestamp-granularity";
 import { TimestampQuickPicker } from "./timestamp-quick-picker";
 import { PasteButton } from "@/components/paste-button";
+import { useTranslations } from "next-intl";
 
 interface TimestampInputProps {
   timestamp: number;
@@ -27,6 +28,8 @@ export function TimestampInput({
   granularity,
   onGranularityChange,
 }: TimestampInputProps) {
+  const t = useTranslations();
+
   const granularityValueLength =
     TIMESTAMP_GRANULARITY_VALUE_LENGTH[granularity];
   const [granularityValue, setGranularityValue] = useState(() =>
@@ -92,23 +95,21 @@ export function TimestampInput({
       </div>
       {isReachMaxTimestamp ? (
         <div className="mb-1 px-1 text-xs text-destructive">
-          Reach the maximum supported timestamp.
+          {t("reach-maximum")}
           <Tooltip>
             <TooltipTrigger className="ml-1 underline">
-              Why is {MAX_TIMESTAMP}?
+              {t("why-maximum-is", { maximum: MAX_TIMESTAMP })}
             </TooltipTrigger>
             <TooltipContent>
               <p className="max-w-96">
-                Max timestamp in ECMAScript Date is milliseconds of ±100,000,000
-                days (8640000000000), use 8600000000000 as maximum for timezone
-                convert correctly there.
+                {t("maximum-reason")}
                 <a
                   className="ml-1 cursor-pointer underline"
                   target="_blank"
-                  href="https://en.wikipedia.org/wiki/Time_formatting_and_storage_bugs#Year_275,760"
+                  href="https://wikipedia.org/wiki/Time_formatting_and_storage_bugs#Year_275,760"
                   rel="noopener"
                 >
-                  Read more
+                  {t("read-more")}
                 </a>
               </p>
             </TooltipContent>

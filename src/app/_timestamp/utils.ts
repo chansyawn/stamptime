@@ -42,11 +42,12 @@ export const toSecondTimestamp = (
 };
 
 export const getTimezoneName = (
+  locale: string,
   timezone: string,
   timestamp: number,
   formatter: Intl.DateTimeFormatOptions["timeZoneName"],
 ) => {
-  return Intl.DateTimeFormat("en-US", {
+  return Intl.DateTimeFormat(locale, {
     timeZone: timezone,
     timeZoneName: formatter,
   })

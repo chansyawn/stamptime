@@ -5,10 +5,7 @@ import {
   type RequiredBrowserPermission,
   useBrowserPermissions,
 } from "./use-browser-permission";
-
-const PERMISSION_NAME: Record<RequiredBrowserPermission, string> = {
-  "clipboard-read": "clipboard",
-};
+import { useTranslations } from "next-intl";
 
 const redirectToPermissionAuthorizationHelpPage = () => {
   window.open("https://support.google.com/chrome/answer/114662");
@@ -17,19 +14,22 @@ const redirectToPermissionAuthorizationHelpPage = () => {
 export const useBrowserPermissionCheck = () => {
   const permissions = useBrowserPermissions();
   const { toast } = useToast();
+  const t = useTranslations("Permission");
 
   const verify = useCallback(
     (permissionName: RequiredBrowserPermission) => {
       if (permissions[permissionName] === "denied") {
         toast({
-          title: "Permission denied",
-          description: `Please allow access to the ${PERMISSION_NAME[permissionName]}`,
+          title: t("permission-denied"),
+          description: t("permission-denied-description", {
+            name: t(permissionName),
+          }),
           action: (
             <ToastAction
-              altText="How to authorize"
+              altText={t("how-to-authorize")}
               onClick={redirectToPermissionAuthorizationHelpPage}
             >
-              How to authorize
+              {t("how-to-authorize")}
             </ToastAction>
           ),
         });
@@ -37,7 +37,7 @@ export const useBrowserPermissionCheck = () => {
       }
       return true;
     },
-    [permissions, toast],
+    [permissions, t, toast],
   );
 
   return {

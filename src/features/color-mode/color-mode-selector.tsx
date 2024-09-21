@@ -7,11 +7,11 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
-import { MoonIcon, SunIcon } from "lucide-react";
+import { CheckIcon, MoonIcon, SunIcon } from "lucide-react";
 import { useColorMode } from "./color-mode-context";
 
 export function ColorModeSelector() {
-  const [, setColorMode] = useColorMode();
+  const [colorMode, setColorMode] = useColorMode();
 
   const colorModeOptions = [
     {
@@ -49,6 +49,9 @@ export function ColorModeSelector() {
         {colorModeOptions.map(({ key, label, onClick }) => (
           <DropdownMenuItem key={key} onClick={onClick}>
             {label}
+            {key === colorMode ? (
+              <CheckIcon className="ml-auto size-4" />
+            ) : null}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

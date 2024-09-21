@@ -13,8 +13,11 @@ import {
 import { timestampAtom } from "./atom";
 import { TimestampInput } from "./timestamp-input";
 import { TimezoneSelector } from "./timezone-selector";
+import { useTranslations } from "next-intl";
 
 function Timestamp() {
+  const t = useTranslations();
+
   const [timezoneAtoms, dispatchTimezones] = useAtom(timezoneAtomsAtom);
   const [timestamp, setTimestamp] = useAtom(timestampAtom);
   const [granularity, setGranularity] = useAtom(granularityAtom);
@@ -60,7 +63,7 @@ function Timestamp() {
         trigger={
           <Button size="sm" className="mt-2">
             <PlusCircleIcon className="mr-1 size-4" />
-            Add timezone
+            {t("add-timezone")}
           </Button>
         }
       />

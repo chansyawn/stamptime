@@ -1,4 +1,6 @@
 import { SiWikipedia } from "@icons-pack/react-simple-icons";
+import { QuoteIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 interface RelatedLinkInfo {
   icon?: React.ReactNode;
@@ -6,23 +8,28 @@ interface RelatedLinkInfo {
   href: string;
 }
 
-const LINKS: RelatedLinkInfo[] = [
+const LINKS = [
   {
     icon: <SiWikipedia size={16} />,
-    label: "Unix time",
-    href: "https://en.wikipedia.org/wiki/Unix_time",
+    label: "unix-time",
+    href: "https://wikipedia.org/wiki/Unix_time",
   },
   {
     icon: <SiWikipedia size={16} />,
-    label: "Timezone database",
-    href: "https://en.wikipedia.org/wiki/List_of_tz_database_time_zones",
+    label: "timezone-database",
+    href: "https://wikipedia.org/wiki/List_of_tz_database_time_zones",
   },
-];
+] as const satisfies RelatedLinkInfo[];
 
 export function References() {
+  const t = useTranslations("Reference");
+
   return (
     <div>
-      <h2 className="mb-1 font-medium">References</h2>
+      <h2 className="mb-1 flex items-center gap-1 font-medium">
+        <QuoteIcon className="size-4" />
+        {t("reference")}
+      </h2>
       <ul>
         {LINKS.map(({ label, href, icon }) => (
           <li key={label}>
@@ -33,7 +40,7 @@ export function References() {
               rel="noopener"
             >
               {icon}
-              <span>{label}</span>
+              <span>{t(label)}</span>
             </a>
           </li>
         ))}

@@ -6,6 +6,7 @@ import {
   SUPPORTED_TIMEZONES,
 } from "./constant";
 import { getTimezoneName, isDST, toSecondTimestamp } from "./utils";
+import { localeAtom } from "@/features/i18n/config";
 
 const { currentValueAtom, debouncedValueAtom } = atomWithDebounce<number>(
   toSecondTimestamp(new Date().valueOf()),
@@ -24,27 +25,28 @@ export const timestampAtom = atom(
 
 export const supportedTimezonesAtom = atom((get) =>
   SUPPORTED_TIMEZONES.map((timezone) =>
-    getTimezoneInfo(timezone, get(debouncedValueAtom), true),
+    getTimezoneInfo(get(localeAtom), timezone, get(debouncedValueAtom), true),
   ),
 );
 
 export const allETCTimezonesAtom = atom((get) =>
   ALL_UTC_OFFSETS.map((timezone) =>
-    getTimezoneInfo(timezone, get(debouncedValueAtom), false),
+    getTimezoneInfo(get(localeAtom), timezone, get(debouncedValueAtom), false),
   ),
 );
 
 const getTimezoneInfo = (
+  locale: string,
   timezone: string,
   timestamp: number,
   abbr: boolean,
 ) => {
   return {
     label: timezone,
-    offset: getTimezoneName(timezone, timestamp, "shortOffset"),
+    offset: getTimezoneName(locale, timezone, timestamp, "shortOffset"),
     dst: isDST(timezone, timestamp),
     abbr: abbr
-      ? getTimezoneName(timezone, timestamp, "longGeneric")
+      ? getTimezoneName(locale, timezone, timestamp, "longGeneric")
       : undefined,
   };
 };

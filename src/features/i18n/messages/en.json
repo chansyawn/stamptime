@@ -1,0 +1,34 @@
+{
+  "add-timezone": "Add timezone",
+  "reach-maximum": "Reach the maximum supported timestamp.",
+  "why-maximum-is": "Why is {maximum}?",
+  "etc-timezone-sign-invert-reason": "Why sign is inverted?",
+  "maximum-reason": "The maximum timestamp for ECMAScript Date is the number of milliseconds for ±100,000,000 days (8640000000000 milliseconds). To ensure correct time zone conversion, 8600000000000 is used as the maximum value.",
+  "read-more": "Read more",
+  "timezone-search-placeholder": "Search timezone",
+  "etc-timezone": "Etc timezone",
+  "Unit": {
+    "seconds": "seconds",
+    "milliseconds": "milliseconds",
+    "microseconds": "microseconds",
+    "nanoseconds": "nanoseconds"
+  },
+  "Permission": {
+    "permission-denied": "Permission denied",
+    "permission-denied-description": "No {name} permission",
+    "how-to-authorize": "How to authorize",
+    "clipboard-read": "clipboard"
+  },
+  "QuickPicker": {
+    "0": "0",
+    "now": "Now",
+    "x1000": "x1000",
+    "÷1000": "÷1000",
+    "precise-to-seconds": "Precise to second"
+  },
+  "Reference": {
+    "reference": "Reference",
+    "unix-time": "Unix time",
+    "timezone-database": "Timezone database"
+  }
+}

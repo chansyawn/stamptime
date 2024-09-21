@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 import { TimestampGranularity } from "./timestamp-granularity";
+import { useTranslations } from "next-intl";
 
 interface TimestampGranularitySwitcherProps {
   value: TimestampGranularity;
@@ -12,6 +13,7 @@ export function TimestampGranularitySwitcher({
   value,
   onChange,
 }: TimestampGranularitySwitcherProps) {
+  const t = useTranslations("Unit");
   const renderOption = (timestampUnit: TimestampGranularity) => {
     return (
       <button
@@ -27,7 +29,7 @@ export function TimestampGranularitySwitcher({
           onChange(timestampUnit);
         }}
       >
-        {timestampUnit}
+        {t(timestampUnit)}
       </button>
     );
   };

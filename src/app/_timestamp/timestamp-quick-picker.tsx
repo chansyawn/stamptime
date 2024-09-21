@@ -5,6 +5,7 @@ import {
   TIMESTAMP_GRANULARITY_VALUE_LENGTH,
   TimestampGranularity,
 } from "./timestamp-granularity";
+import { useTranslations } from "next-intl";
 
 interface TimestampQuickPickerProps {
   timestamp: number;
@@ -23,10 +24,10 @@ interface QuickPickerOption {
   disabled?: (granularity: TimestampGranularity) => boolean;
 }
 
-const TIMESTAMP_QUICK_PICKER_OPTIONS: QuickPickerOption[] = [
+const TIMESTAMP_QUICK_PICKER_OPTIONS = [
   { label: "0", getValue: () => "0" },
   {
-    label: "Now",
+    label: "now",
     getValue: ({ granularity }) => {
       const granularityValueLength =
         TIMESTAMP_GRANULARITY_VALUE_LENGTH[granularity];
@@ -34,7 +35,7 @@ const TIMESTAMP_QUICK_PICKER_OPTIONS: QuickPickerOption[] = [
     },
   },
   {
-    label: "×1000",
+    label: "x1000",
     getValue: ({ timestamp, granularityValue }) =>
       `${timestamp}${granularityValue}000`,
   },
@@ -44,14 +45,14 @@ const TIMESTAMP_QUICK_PICKER_OPTIONS: QuickPickerOption[] = [
       `${timestamp}${granularityValue}`.slice(0, -3),
   },
   {
-    label: "Round",
+    label: "precise-to-seconds",
     getValue: ({ timestamp, granularity }) =>
       `${timestamp}${"0".repeat(
         TIMESTAMP_GRANULARITY_VALUE_LENGTH[granularity],
       )}`,
     disabled: (granularity) => granularity === TimestampGranularity.Second,
   },
-];
+] as const satisfies QuickPickerOption[];
 
 export function TimestampQuickPicker({
   timestamp,
@@ -59,10 +60,12 @@ export function TimestampQuickPicker({
   granularity,
   onChange,
 }: TimestampQuickPickerProps) {
+  const t = useTranslations("QuickPicker");
+
   return (
     <div className="flex gap-2">
-      {TIMESTAMP_QUICK_PICKER_OPTIONS.filter(
-        ({ disabled }) => !disabled?.(granularity),
+      {TIMESTAMP_QUICK_PICKER_OPTIONS.filter((item) =>
+        "disabled" in item ? !item.disabled(granularity) : true,
       ).map(({ label, getValue }) => (
         <Button
           key={label}
@@ -72,7 +75,7 @@ export function TimestampQuickPicker({
             onChange(getValue({ timestamp, granularityValue, granularity }));
           }}
         >
-          {label}
+          {t(label)}
         </Button>
       ))}
     </div>
