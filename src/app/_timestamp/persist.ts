@@ -19,7 +19,7 @@ const PERSIST_SCHEMA = z.object({
 type Persist = z.infer<typeof PERSIST_SCHEMA>;
 
 const persistAtom = atomWithValidatedStorage<Persist>(
-  LocalStorageKey.ToolPersistTimestamp,
+  LocalStorageKey.TimestampConfig,
   {
     granularity: TimestampGranularity.Second,
     customTimezone: [],

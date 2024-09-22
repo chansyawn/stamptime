@@ -1,5 +1,5 @@
 import { SiWikipedia } from "@icons-pack/react-simple-icons";
-import { QuoteIcon } from "lucide-react";
+import { LinkIcon } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 interface RelatedLinkInfo {
@@ -27,7 +27,7 @@ export function References() {
   return (
     <div>
       <h2 className="mb-1 flex items-center gap-1 font-medium">
-        <QuoteIcon className="size-4" />
+        <LinkIcon className="size-4" />
         {t("reference")}
       </h2>
       <ul>

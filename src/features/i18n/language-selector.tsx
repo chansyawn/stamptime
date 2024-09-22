@@ -11,12 +11,13 @@ import { CheckIcon, LanguagesIcon } from "lucide-react";
 import { Locale, localeAtom, locales } from "./config";
 import { setUserLocale } from "./service";
 import { useLocale } from "next-intl";
-import { useEffect } from "react";
+import { useEffect, useTransition } from "react";
 import { useSetAtom } from "jotai";
 
 export function LanguageSelector() {
   const locale = useLocale();
   const setLocale = useSetAtom(localeAtom);
+  const [isPending, startTransition] = useTransition();
 
   useEffect(() => {
     setLocale(locale as Locale);
@@ -25,7 +26,7 @@ export function LanguageSelector() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon" disabled={isPending}>
           <LanguagesIcon className="size-4" />
         </Button>
       </DropdownMenuTrigger>
@@ -33,7 +34,7 @@ export function LanguageSelector() {
         {locales.map(({ code, name }) => (
           <DropdownMenuItem
             key={code}
-            onClick={() => setUserLocale(code)}
+            onClick={() => startTransition(() => setUserLocale(code))}
             className="flex items-center"
           >
             {name}
