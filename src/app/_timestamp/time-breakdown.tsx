@@ -10,6 +10,7 @@ import { TimestampBreakdownInput } from "./time-breakdown-input";
 import { getTimezoneOffset, toSecondTimestamp } from "./utils";
 import { TIME_FIELDS } from "./constant";
 import { allETCTimezonesAtom, supportedTimezonesAtom } from "./atom";
+import { TimestampCopy } from "./timestamp-copy";
 
 export interface TimeBreakdownProps {
   value: number;
@@ -52,6 +53,7 @@ function TimeBreakdown({ value, onChange, timezone }: TimeBreakdownProps) {
           />
         );
       })}
+      <TimestampCopy timestamp={value} timezone={timezone} />
     </>
   );
 }
